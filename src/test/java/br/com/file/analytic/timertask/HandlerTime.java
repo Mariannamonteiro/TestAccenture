@@ -1,6 +1,7 @@
 package br.com.file.analytic.timertask;
 
 import br.com.file.analytic.diretorio.CriaDiretorio;
+import br.com.file.analytic.processos.Processamento;
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +27,12 @@ public class HandlerTime {
                     //criando  subs
                     CriaDiretorio.createSubDirectory("in", pathFolderData);
                     CriaDiretorio.createSubDirectory("out", pathFolderData);
+
+                    // passando diretorio e caminho p varrer
+                    String pasta = "\\data\\in";
+                    String caminho = homepath + pasta;
+                    File diretorio = new File(caminho);
+                    Processamento.listFiles(diretorio, caminho);
 
                 } catch (Exception e) {
                     e.printStackTrace();
